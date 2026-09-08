@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Net Internet | Ultra-Fast Fiber & Broadband</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9fbfd;
+        }
+
+        /* Variables */
+        :root {
+            --primary: #0052cc;
+            --secondary: #00b4d8;
+            --dark: #0f172a;
+            --light: #ffffff;
+            --gray: #64748b;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--dark);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            color: var(--light);
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light) !important;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero-content h1 span {
+            color: var(--secondary);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #94a3b8;
+        }
+
+        .btn-large {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .btn-large:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--light);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: #f1f5f9;
+            padding: 80px 20px;
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .plan {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .plan.popular {
+            border: 2px solid var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .badge {
+            background: var(--secondary);
+            color: var(--light);
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            transform: rotate(45deg);
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .plan ul {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .plan ul li {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .plan ul li::before {
+            content: "✓";
+            color: #10b981;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .btn-outline {
+            display: block;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .plan.popular .btn-outline {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #334155;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplification for code brevity */
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .plan.popular {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">SKY<span>NET</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Plans</a></li>
+                <li><a href="#contact" class="cta-btn">Get Connected</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Next-Generation <span>Internet</span> is Here</h1>
+            <p>Experience blazing-fast fiber speeds, zero data caps, and 99.9% reliability for gaming, streaming, and smart homes.</p>
+            <a href="#pricing" class="btn-large">View Available Plans</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title">Why Choose Sky Net?</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Gigabit Speeds</h3>
+                <p>Download and upload at lightning speeds up to 1 Gbps. Perfect for multiple heavy-use devices.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">♾️</div>
+                <h3>Unlimited Data</h3>
+                <p>No throttling, no caps, and no overage fees. Use as much internet as you need, whenever you want.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛠️</div>
+                <h3>24/7 Support</h3>
+                <p>Our expert support team is always awake and ready to keep you connected around the clock.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="pricing-container">
+            <h2 class="section-title">Affordable Broadband Plans</h2>
+            <div class="plans-grid">
+                <!-- Plan 1 -->
+                <div class="plan">
+                    <h3>Starter Fiber</h3>
+                    <div class="price">$39<span>/mo</span></div>
+                    <ul>
+                        <li>Up to 100 Mbps Speeds</li>
+                        <li>Unlimited Data Caps</li>
+                        <li>Free Wi-Fi Router</li>
+                        <li>Ideal for 1-3 devices</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Choose Plan</a>
+                </div>
+
+                <!-- Plan 2 (Most Popular) -->
+                <div class="plan popular">
+                    <div class="badge">POPULAR</div>
+                    <h3>Pro Fiber</h3>
+                    <div class="price">$69<span>/mo</span></div>
+                    <ul>
+                        <li>Up to 500 Mbps Speeds</li>
+                        <li>Unlimited Data Caps</li>
+                        <li>Free Premium Wi-Fi Router</li>
+                        <li>4K Streaming Ready</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Choose Plan</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="plan">
+                    <h3>Elite Gigabit</h3>
+                    <div class="price">$99<span>/mo</span></div>
+                    <ul>
+                        <li>Up to 1 Gbps Speeds</li>
+                        <li>Unlimited Data Caps</li>
+                        <li>Free Premium Wi-Fi 6 Router</li>
+                        <li>8K Ready & Gaming Optimized</li>
+                        <li>24/7 Premium Support</li>
+                        <li>Free Installation & Setup</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Sky Net Internet. All rights reserved. | Fast. Reliable. Connected.</p>
+    </footer>
+
+</body>
+</html>
